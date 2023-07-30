@@ -20,7 +20,8 @@ def get_text_messages(message):
         btn2 = types.KeyboardButton('Селфи')
         btn3 = types.KeyboardButton('Фото')
         btn4 = types.KeyboardButton('Прислать войсы')
-        markup.add(btn1, btn2, btn3, btn4)
+        btn5 = types.KeyboardButton('Ссылка на git')
+        markup.add(btn1, btn2, btn3, btn4, btn5)
         bot.send_message(message.from_user.id, '❓ Задайте интересующий вас вопрос', reply_markup=markup) 
 
 
@@ -29,6 +30,8 @@ def get_text_messages(message):
                                                 Можно сказать это программирование, так как в силу своей профессии провожу за кодом достаточно много времени.
                                                 Больших достижений и проектов не имею, в большей степени помогаю ребятам исправлять ошибки, объяснять что-то ну и так же вместе с ними учиться.
                                                 Я постоянно нахожусь в процессе самообучения, не важно какое это направление''', parse_mode='Markdown')
+    elif message.text == 'Ссылка на git':
+        bot.send_message(message.from_user.id, 'https://github.com/K1rusH/telbot', parse_mode='Markdown')    
     elif message.text == 'Селфи':
         bot.send_photo(message.from_user.id, photo=open('images/sel.jpg', 'rb'))
     elif message.text == 'Фото':
